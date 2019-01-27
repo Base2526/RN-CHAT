@@ -69,7 +69,7 @@ class Chat extends React.Component {
 
     componentDidMount(){
 
-      console.log(require('./pic.jpg'))
+      // console.log(require('./pic.jpg'))
 
       this.props.navigation.setParams({ handleSendMessage: this.handleSendMessage })
 
