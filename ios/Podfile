@@ -1,0 +1,48 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'DNAChat' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for DNAChat
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+
+ # target 'DNAChat-tvOSTests' do
+ #   inherit! :search_paths
+    # Pods for testing
+ # end
+
+#  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  target 'DNAChatTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'DNAChat-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for DNAChat-tvOS
+
+  target 'DNAChat-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == "React"
+            target.remove_from_project
+        end
+    end
+end
